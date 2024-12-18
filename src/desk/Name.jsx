@@ -10,6 +10,7 @@ export default function Name() {
                 maxWidth={ 2 }
                 textAlign='center'>
                 MIGUEL SANTAMARIA
+                {/* TODO Miguel : titre professionnel ? */}
             </Text>
         </Float>
     </>

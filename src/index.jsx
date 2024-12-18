@@ -8,13 +8,14 @@ const root = ReactDOM.createRoot(document.querySelector('#root'));
 root.render(
     <Canvas
         className="r3f"
+        shadows
+        flat
         camera={ {
             fov: 45,
             near: 0.1,
             far: 2000,
-            position: [ -3, 1.5, 4.5 ]
-        } }
-    >
+            position: [-3, 1.5, 4.5]
+        } } >
         <Experience />
     </Canvas>
 )

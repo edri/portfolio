@@ -1,9 +1,9 @@
 import * as THREE from 'three';
 import { shaderMaterial, useGLTF, useTexture } from "@react-three/drei";
 import { extend, useFrame } from "@react-three/fiber";
+import { useEffect, useRef } from "react";
 import coffeeSmokeVertexShader from '../shaders/coffeeSmoke/vertex.glsl';
 import coffeeSmokeFragmentShader from '../shaders/coffeeSmoke/fragment.glsl';
-import { useEffect, useRef } from "react";
 
 const CoffeeSmokeMaterial = shaderMaterial(
     {
@@ -17,7 +17,7 @@ const CoffeeSmokeMaterial = shaderMaterial(
 extend({ CoffeeSmokeMaterial });
 
 export default function Coffee() {
-  const coffeeCup = useGLTF('./models/coffee.glb');
+  const { nodes, materials } = useGLTF('./models/coffee.glb');
   const perlinTexture = useTexture('./images/perlin.png');
   // Make the perlin texture repeat itself.
   perlinTexture.wrapS = THREE.RepeatWrapping;
@@ -35,7 +35,7 @@ export default function Coffee() {
   
   return <>
     {/* Smoke */}
-    <mesh scale={ [ 0.7, 6, 0.7 ] } position={ [ -2.5, 3.7, 0 ] }>
+    <mesh scale={ [ 0.7, 6, 0.7 ] } position={ [ -2.5, 3, 0 ] }>
         <planeGeometry args={ [ 1, 1, 16, 64 ] } />
         <coffeeSmokeMaterial
             ref={ coffeeSmokeMaterial }
@@ -45,10 +45,12 @@ export default function Coffee() {
             depthWrite={ false } />
     </mesh>
     {/* Cup */}
-    <primitive
-      object={ coffeeCup.scene }
-      scale={ 0.4 }
-      position={ [ -2.5, 0, 0 ] }
-      rotation={[0, -Math.PI, 0]} />
+    <mesh
+        castShadow
+        geometry={nodes.baked.geometry}
+        material={materials.baked}
+        scale={ 0.4 }
+        position={[-2.5, 0, 0]}
+        rotation={[0, -Math.PI, 0]} />
   </>
 };

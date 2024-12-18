@@ -1,10 +1,24 @@
 import { Html, useGLTF } from "@react-three/drei";
+import { useEffect } from "react";
 
 export default function Macbook() {
   const computer = useGLTF('./models/macbook.gltf');
+
+  useEffect(() => {
+    computer.scene.traverse((node) => {
+      if (node.isMesh) {
+        // Cast and receive shadows for the top and the bottom of the Macbook. 
+        if (node.name === 'Circle001' || node.name === 'Circle002' || node.name === 'Circle001_4' || node.name === 'Circle001_6') {
+          node.castShadow = true;
+          node.receiveShadow = true;
+        }
+      }
+    });
+  });
   
   return <>
     {/* Screen light */}
+    {/* TODO Miguel : réduire intesité ? */}
     <rectAreaLight
         width={ 2.5 }
         height={ 1.65 }
