@@ -1,9 +1,9 @@
 import { useGLTF } from "@react-three/drei";
 
-export default function Macbook({scale}) {
+export default function Macbook({ scale }) {
+  // TODO Miguel : loader en global ?
   const { nodes, materials } = useGLTF('./models/plant.glb');
   
-  // TODO Miguel : fix les ombres "cassées" sur le pot de la plante
   return <>
     <mesh
       castShadow

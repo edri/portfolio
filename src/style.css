@@ -20,3 +20,20 @@ body,
   border-radius: 20px;
   background: #000000;
 }
+
+.enter-website-button {
+  box-shadow: 3px 3px 20px black;
+  background-color: #e1b180;
+  border: 1px solid #362b1f;
+  border-radius: 5px;
+  bottom: 1em;
+  color: #362b1f;
+  cursor: pointer;
+  font-family: "Melted Monster", Arial, Helvetica, sans-serif;
+  font-size: 3em;
+  left: 50%;
+  letter-spacing: 2px;
+  padding: 7px 15px;
+  position: absolute;
+  transform: translateX(-50%);
+}

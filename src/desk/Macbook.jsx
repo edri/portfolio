@@ -1,7 +1,7 @@
 import { Html, useGLTF } from "@react-three/drei";
 import { useEffect } from "react";
 
-export default function Macbook() {
+export default function Macbook({ onClick }) {
   const computer = useGLTF('./models/macbook.gltf');
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function Macbook() {
         rotation={ [ -0.1, Math.PI, 0 ] }
         position={ [ 0, 0.55, -1.15 ] } />
 
-    <primitive object={ computer.scene }>
+    <primitive object={ computer.scene } onClick={onClick}>
         <Html
             transform
             wrapperClass="htmlScreen"
