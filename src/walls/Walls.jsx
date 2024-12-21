@@ -1,15 +1,15 @@
 import * as THREE from 'three';
-import { useTexture } from "@react-three/drei";
+import { useTexture } from '@react-three/drei';
 import Wall from './Wall';
-import { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 export default function Walls({ color }) {
   const wallColorTexture = useTexture('./textures/wall/color.webp');
   const wallAmbientOcclusionTexture = useTexture('./textures/wall/ambientOcclusion.webp');
-  const wallMetalnessTexture = useTexture("/textures/wall/metalness.webp");
-  const wallRoughnessTexture = useTexture("/textures/wall/roughness.webp");
-  const wallNormalTexture = useTexture("/textures/wall/normal.webp");
-  const wallDisplacementTexture = useTexture("/textures/wall/displacement.webp");
+  const wallMetalnessTexture = useTexture('/textures/wall/metalness.webp');
+  const wallRoughnessTexture = useTexture('/textures/wall/roughness.webp');
+  const wallNormalTexture = useTexture('/textures/wall/normal.webp');
+  const wallDisplacementTexture = useTexture('/textures/wall/displacement.webp');
 
   wallColorTexture.colorSpace = THREE.SRGBColorSpace;
   wallColorTexture.center = new THREE.Vector2(0.5, 0.5);
@@ -36,11 +36,22 @@ export default function Walls({ color }) {
     metalness: wallMetalnessTexture,
     roughness: wallRoughnessTexture,
     normal: wallNormalTexture,
-    displacement: wallDisplacementTexture,
+    displacement: wallDisplacementTexture
   };
 
-  return <>
-    <Wall texture={ texture } color={ color } position={ [0, 3.5, -5] } size={[20, 10]} />
-    <Wall texture={ texture } color={ color } position={ [5, 3.5, -0.5] } rotation={ [0, -Math.PI / 2, 0] } />
-  </>
+  return (
+    <>
+      <Wall texture={texture} color={color} position={[0, 3.5, -5]} size={[20, 10]} />
+      <Wall
+        texture={texture}
+        color={color}
+        position={[5, 3.5, -0.5]}
+        rotation={[0, -Math.PI / 2, 0]}
+      />
+    </>
+  );
+}
+
+Walls.propTypes = {
+  color: PropTypes.string.isRequired
 };

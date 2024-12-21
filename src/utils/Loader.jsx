@@ -1,8 +1,10 @@
 export default function Loader() {
-  return <>
-    <mesh>
+  return (
+    <>
+      <mesh>
         <boxGeometry />
         <meshBasicMaterial color="red" />
-    </mesh>
-  </>
-};
+      </mesh>
+    </>
+  );
+}

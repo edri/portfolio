@@ -1,14 +1,14 @@
 import * as THREE from 'three';
-import { useTexture } from "@react-three/drei";
-import { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { useTexture } from '@react-three/drei';
 
 export default function Desk({ color }) {
   const woodColorTexture = useTexture('./textures/wood/color.webp');
   const woodAmbientOcclusionTexture = useTexture('./textures/wood/ambientOcclusion.webp');
-  const woodMetalnessTexture = useTexture("/textures/wood/metalness.webp");
-  const woodRoughnessTexture = useTexture("/textures/wood/roughness.webp");
-  const woodNormalTexture = useTexture("/textures/wood/normal.webp");
-  const woodDisplacementTexture = useTexture("/textures/wood/displacement.webp");
+  const woodMetalnessTexture = useTexture('/textures/wood/metalness.webp');
+  const woodRoughnessTexture = useTexture('/textures/wood/roughness.webp');
+  const woodNormalTexture = useTexture('/textures/wood/normal.webp');
+  const woodDisplacementTexture = useTexture('/textures/wood/displacement.webp');
 
   woodColorTexture.colorSpace = THREE.SRGBColorSpace;
   woodColorTexture.center = new THREE.Vector2(0.5, 0.5);
@@ -29,8 +29,9 @@ export default function Desk({ color }) {
   woodDisplacementTexture.center = new THREE.Vector2(0.5, 0.5);
   woodDisplacementTexture.rotation = Math.PI / 2;
 
-  return <>
-    <mesh receiveShadow position-y={ -1.25 } rotation={[-Math.PI / 2, 0, 0]}>
+  return (
+    <>
+      <mesh receiveShadow position-y={-1.25} rotation={[-Math.PI / 2, 0, 0]}>
         <planeGeometry args={[20, 10]} />
         <meshStandardMaterial
           color={color}
@@ -43,6 +44,11 @@ export default function Desk({ color }) {
           displacementScale={0.45}
           displacementBias={-0.12}
         />
-    </mesh>
-  </>
+      </mesh>
+    </>
+  );
+}
+
+Desk.propTypes = {
+  color: PropTypes.string.isRequired
 };

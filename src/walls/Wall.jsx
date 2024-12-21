@@ -1,6 +1,9 @@
+import PropTypes from 'prop-types';
+
 export default function Wall({ texture, color, position, rotation = [0, 0, 0], size = [10, 10] }) {
-  return <>
-    <mesh receiveShadow position={ position } rotation={ rotation }>
+  return (
+    <>
+      <mesh receiveShadow position={position} rotation={rotation}>
         <planeGeometry args={size} />
         {/* <meshStandardMaterial color="#8B4513" /> */}
         <meshStandardMaterial
@@ -14,6 +17,15 @@ export default function Wall({ texture, color, position, rotation = [0, 0, 0], s
           displacementScale={0.45}
           displacementBias={-0.1}
         />
-    </mesh>
-  </>
+      </mesh>
+    </>
+  );
+}
+
+Wall.propTypes = {
+  texture: PropTypes.object.isRequired,
+  color: PropTypes.string.isRequired,
+  position: PropTypes.array.isRequired,
+  rotation: PropTypes.array,
+  size: PropTypes.array
 };
