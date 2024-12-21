@@ -1,7 +1,7 @@
-export default function Wall({ texture, color, position, rotation = [0, 0, 0] }) {
+export default function Wall({ texture, color, position, rotation = [0, 0, 0], size = [10, 10] }) {
   return <>
     <mesh receiveShadow position={ position } rotation={ rotation }>
-        <planeGeometry args={[10, 10]} />
+        <planeGeometry args={size} />
         {/* <meshStandardMaterial color="#8B4513" /> */}
         <meshStandardMaterial
           color={color}

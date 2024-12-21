@@ -11,26 +11,24 @@ export default function Walls({ color }) {
   const wallNormalTexture = useTexture("/textures/wall/normal.webp");
   const wallDisplacementTexture = useTexture("/textures/wall/displacement.webp");
 
-  useEffect(() => {
-      wallColorTexture.colorSpace = THREE.SRGBColorSpace;
-      wallColorTexture.center = new THREE.Vector2(0.5, 0.5);
-      wallColorTexture.rotation = Math.PI / 2;
+  wallColorTexture.colorSpace = THREE.SRGBColorSpace;
+  wallColorTexture.center = new THREE.Vector2(0.5, 0.5);
+  wallColorTexture.rotation = Math.PI / 2;
 
-      wallAmbientOcclusionTexture.center = new THREE.Vector2(0.5, 0.5);
-      wallAmbientOcclusionTexture.rotation = Math.PI / 2;
+  wallAmbientOcclusionTexture.center = new THREE.Vector2(0.5, 0.5);
+  wallAmbientOcclusionTexture.rotation = Math.PI / 2;
 
-      wallMetalnessTexture.center = new THREE.Vector2(0.5, 0.5);
-      wallMetalnessTexture.rotation = Math.PI / 2;
+  wallMetalnessTexture.center = new THREE.Vector2(0.5, 0.5);
+  wallMetalnessTexture.rotation = Math.PI / 2;
 
-      wallRoughnessTexture.center = new THREE.Vector2(0.5, 0.5);
-      wallRoughnessTexture.rotation = Math.PI / 2;
+  wallRoughnessTexture.center = new THREE.Vector2(0.5, 0.5);
+  wallRoughnessTexture.rotation = Math.PI / 2;
 
-      wallNormalTexture.center = new THREE.Vector2(0.5, 0.5);
-      wallNormalTexture.rotation = Math.PI / 2;
+  wallNormalTexture.center = new THREE.Vector2(0.5, 0.5);
+  wallNormalTexture.rotation = Math.PI / 2;
 
-      wallDisplacementTexture.center = new THREE.Vector2(0.5, 0.5);
-      wallDisplacementTexture.rotation = Math.PI / 2;
-  });
+  wallDisplacementTexture.center = new THREE.Vector2(0.5, 0.5);
+  wallDisplacementTexture.rotation = Math.PI / 2;
 
   const texture = {
     color: wallColorTexture,
@@ -42,7 +40,7 @@ export default function Walls({ color }) {
   };
 
   return <>
-    <Wall texture={ texture } color={ color } position={ [0, 3.5, -5] } />
+    <Wall texture={ texture } color={ color } position={ [0, 3.5, -5] } size={[20, 10]} />
     <Wall texture={ texture } color={ color } position={ [5, 3.5, -0.5] } rotation={ [0, -Math.PI / 2, 0] } />
   </>
 };

@@ -31,7 +31,7 @@ export default function Desk({ color }) {
 
   return <>
     <mesh receiveShadow position-y={ -1.25 } rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[10, 10]} />
+        <planeGeometry args={[20, 10]} />
         <meshStandardMaterial
           color={color}
           map={woodColorTexture}

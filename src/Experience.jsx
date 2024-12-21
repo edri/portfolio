@@ -62,7 +62,13 @@ export default function Experience() {
     });
 
     const camera = useThree((state) => state.camera);
-    
+
+    const [enterScreenStepNumber, setEnterScreenStepNumber] = useState(0);
+
+    function enterScreen() {
+        setEnterScreenStepNumber(1);
+    }
+
     // TODO Miguel : delete
     useMemo(() => {
         if (camera) {
@@ -72,22 +78,14 @@ export default function Experience() {
         }
     }, [x, y, z, zoom]);
 
-    const [enterScreenStepNumber, setEnterScreenStepNumber] = useState(0);
-
-    function enterScreen() {
-        setEnterScreenStepNumber(1);
-    }
-
     useFrame((state, delta) => {
-        let finalCameraPosition;
-
         switch (enterScreenStepNumber) {
             case 1:
                 // Face the screen
-                finalCameraPosition = new THREE.Vector3(0.5, 0.3, 5);
-                state.camera.position.lerp(finalCameraPosition, delta * 2);
+                const finalCameraPosition = new THREE.Vector3(0.5, 0.3, 4.5);
+                state.camera.position.lerp(finalCameraPosition, delta * 2.5);
 
-                if (state.camera.position.x < 0.55 && state.camera.position.y < 0.35 && state.camera.position.z > 4.95) {
+                if (state.camera.position.x < 0.55 && state.camera.position.y < 0.35 && state.camera.position.z > 4.45) {
                     // TODO Miguel : supprimer ?
                     // camera.position.set(0.5, 0.3, 5);
                     // camera.updateProjectionMatrix();
@@ -161,10 +159,8 @@ export default function Experience() {
                 friction={ 0.7 } >
                 <Desk color={ woodColor } />
             </RigidBody>
-
-            <RigidBody type="fixed">
-                <Walls color={ wallColor } />
-            </RigidBody>
         </Physics>
+
+        <Walls color={ wallColor } />
     </>
 }
