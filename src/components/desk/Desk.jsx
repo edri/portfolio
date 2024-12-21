@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { useTexture } from '@react-three/drei';
 
 export default function Desk({ color }) {
-  const woodColorTexture = useTexture('./textures/wood/color.webp');
-  const woodAmbientOcclusionTexture = useTexture('./textures/wood/ambientOcclusion.webp');
+  const woodColorTexture = useTexture('/textures/wood/color.webp');
+  const woodAmbientOcclusionTexture = useTexture('/textures/wood/ambientOcclusion.webp');
   const woodMetalnessTexture = useTexture('/textures/wood/metalness.webp');
   const woodRoughnessTexture = useTexture('/textures/wood/roughness.webp');
   const woodNormalTexture = useTexture('/textures/wood/normal.webp');

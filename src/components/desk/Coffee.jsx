@@ -2,8 +2,8 @@ import * as THREE from 'three';
 import { shaderMaterial, useGLTF, useTexture } from '@react-three/drei';
 import { extend, useFrame } from '@react-three/fiber';
 import { useEffect, useRef } from 'react';
-import coffeeSmokeVertexShader from '../shaders/coffeeSmoke/vertex.glsl';
-import coffeeSmokeFragmentShader from '../shaders/coffeeSmoke/fragment.glsl';
+import coffeeSmokeVertexShader from '../../shaders/coffeeSmoke/vertex.glsl';
+import coffeeSmokeFragmentShader from '../../shaders/coffeeSmoke/fragment.glsl';
 
 const CoffeeSmokeMaterial = shaderMaterial(
   {

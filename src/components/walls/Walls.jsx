@@ -4,8 +4,8 @@ import Wall from './Wall';
 import PropTypes from 'prop-types';
 
 export default function Walls({ color }) {
-  const wallColorTexture = useTexture('./textures/wall/color.webp');
-  const wallAmbientOcclusionTexture = useTexture('./textures/wall/ambientOcclusion.webp');
+  const wallColorTexture = useTexture('/textures/wall/color.webp');
+  const wallAmbientOcclusionTexture = useTexture('/textures/wall/ambientOcclusion.webp');
   const wallMetalnessTexture = useTexture('/textures/wall/metalness.webp');
   const wallRoughnessTexture = useTexture('/textures/wall/roughness.webp');
   const wallNormalTexture = useTexture('/textures/wall/normal.webp');

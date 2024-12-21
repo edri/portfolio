@@ -42,7 +42,7 @@ export default function Macbook({ onClick }) {
           distanceFactor={1.17}
           position={[0, 1.56, -1.4]}
           rotation-x={-0.256}>
-          <iframe src="https://github.com/edri" />
+          <iframe src="/home" />
         </Html>
       </primitive>
     </>

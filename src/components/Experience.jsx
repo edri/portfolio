@@ -2,16 +2,28 @@ import * as THREE from 'three';
 import { useControls } from 'leva';
 import { Environment, OrbitControls } from '@react-three/drei';
 import { RigidBody, Physics, CuboidCollider } from '@react-three/rapier';
+import { useNavigate } from 'react-router';
+import { useFrame, useThree } from '@react-three/fiber';
+import { useMemo, useState } from 'react';
 import Macbook from './desk/Macbook';
 import Coffee from './desk/Coffee';
 import Plant from './desk/Plant';
 import Name from './desk/Name';
 import Desk from './desk/Desk';
 import Walls from './walls/Walls';
-import { useFrame, useThree } from '@react-three/fiber';
-import { useMemo, useState } from 'react';
 
 export default function Experience() {
+  // TODO Miguel
+  // const woodColor = '#E1B180';
+  // const wallColor = '#362B1F';
+  // const textColor = '#FFFFFF';
+  // const environmentRotationY = 17;
+  // const directionalLightX = 5;
+  // const x = -3;
+  // const y = 1.5;
+  // const z = 4.5;
+  // const zoom = 1;
+
   const {
     woodColor,
     wallColor,
@@ -64,9 +76,10 @@ export default function Experience() {
     }
   });
 
-  const camera = useThree((state) => state.camera);
-
   const [enterScreenStepNumber, setEnterScreenStepNumber] = useState(0);
+
+  const camera = useThree((state) => state.camera);
+  const navigate = useNavigate();
 
   function enterScreen() {
     setEnterScreenStepNumber(1);
@@ -86,16 +99,13 @@ export default function Experience() {
       case 1: {
         // Face the screen
         const finalCameraPosition = new THREE.Vector3(0.5, 0.3, 4.5);
-        state.camera.position.lerp(finalCameraPosition, delta * 2.5);
+        state.camera.position.lerp(finalCameraPosition, delta * 3);
 
         if (
           state.camera.position.x < 0.55 &&
           state.camera.position.y < 0.35 &&
           state.camera.position.z > 4.45
         ) {
-          // TODO Miguel : supprimer ?
-          // camera.position.set(0.5, 0.3, 5);
-          // camera.updateProjectionMatrix();
           setEnterScreenStepNumber(2);
         }
 
@@ -103,7 +113,7 @@ export default function Experience() {
       }
       case 2:
         // Enter the screen
-        state.camera.zoom += delta * 2;
+        state.camera.zoom += delta * 2.8;
         camera.updateProjectionMatrix();
 
         if (state.camera.zoom > 3.5) {
@@ -111,6 +121,9 @@ export default function Experience() {
         }
 
         break;
+      case 3:
+        // Redirect user to home page.
+        navigate('/home');
     }
   });
 
@@ -162,6 +175,14 @@ export default function Experience() {
         <RigidBody type="fixed" restitution={0} friction={0.7}>
           <Desk color={woodColor} />
         </RigidBody>
+
+        {/* TODO Miguel */}
+        {/* <RigidBody position={[0, 0, 0]}>
+          <mesh>
+            <boxGeometry args={[1, 1, 1]} />
+            <meshBasicMaterial color="red" />
+          </mesh>
+        </RigidBody> */}
       </Physics>
 
       <Walls color={wallColor} />
