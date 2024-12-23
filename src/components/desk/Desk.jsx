@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useTexture } from '@react-three/drei';
 
 export default function Desk({ color }) {
+  // TODO Miguel : fix artefacts on the wood with the light
   const woodColorTexture = useTexture('/textures/wood/color.webp');
   const woodAmbientOcclusionTexture = useTexture('/textures/wood/ambientOcclusion.webp');
   const woodMetalnessTexture = useTexture('/textures/wood/metalness.webp');

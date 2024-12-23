@@ -1,8 +1,7 @@
 import { Html, useGLTF } from '@react-three/drei';
-import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 
-export default function Macbook({ onClick }) {
+export default function Macbook() {
   const computer = useGLTF('./models/macbook.gltf');
 
   useEffect(() => {
@@ -35,10 +34,10 @@ export default function Macbook({ onClick }) {
         position={[0, 0.55, -1.15]}
       />
 
-      <primitive object={computer.scene} onClick={onClick}>
+      <primitive object={computer.scene}>
         <Html
           transform
-          wrapperClass="htmlScreen"
+          wrapperClass="html-screen"
           distanceFactor={1.17}
           position={[0, 1.56, -1.4]}
           rotation-x={-0.256}>
@@ -48,8 +47,3 @@ export default function Macbook({ onClick }) {
     </>
   );
 }
-
-// TODO Miguel : supprimer
-Macbook.propTypes = {
-  onClick: PropTypes.func.isRequired
-};

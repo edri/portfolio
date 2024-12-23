@@ -36,7 +36,7 @@ export default function Coffee() {
   return (
     <>
       {/* Smoke */}
-      <mesh scale={[0.7, 6, 0.7]} position={[-2.5, 3, 0]}>
+      <mesh scale={[0.7, 6, 0.7]} position={[-2.5, 3, 0]} rotation={[0, -Math.PI, 0]}>
         <planeGeometry args={[1, 1, 16, 64]} />
         <coffeeSmokeMaterial
           ref={coffeeSmokeMaterial}

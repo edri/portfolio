@@ -1,10 +1,10 @@
 import * as THREE from 'three';
 import { useControls } from 'leva';
-import { Environment, OrbitControls } from '@react-three/drei';
+import { Environment, Html, OrbitControls } from '@react-three/drei';
 import { RigidBody, Physics, CuboidCollider } from '@react-three/rapier';
 import { useNavigate } from 'react-router';
 import { useFrame, useThree } from '@react-three/fiber';
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import Macbook from './desk/Macbook';
 import Coffee from './desk/Coffee';
 import Plant from './desk/Plant';
@@ -24,17 +24,7 @@ export default function Experience() {
   // const z = 4.5;
   // const zoom = 1;
 
-  const {
-    woodColor,
-    wallColor,
-    textColor,
-    environmentRotationY,
-    directionalLightX,
-    x,
-    y,
-    z,
-    zoom
-  } = useControls({
+  const { woodColor, wallColor, textColor, environmentRotationY, directionalLightX } = useControls({
     woodColor: '#E1B180',
     wallColor: '#362B1F',
     textColor: '#FFFFFF',
@@ -49,50 +39,27 @@ export default function Experience() {
       min: 0,
       max: 50,
       step: 0.01
-    },
-    x: {
-      value: -3,
-      min: -10,
-      max: 10,
-      step: 0.01
-    },
-    y: {
-      value: 1.5,
-      min: -10,
-      max: 10,
-      step: 0.01
-    },
-    z: {
-      value: 4.5,
-      min: -10,
-      max: 10,
-      step: 0.01
-    },
-    zoom: {
-      value: 1,
-      min: 0,
-      max: 50,
-      step: 0.01
     }
   });
 
+  const [showEnterScreenButton, setShowEnterScreenButton] = useState(false);
   const [enterScreenStepNumber, setEnterScreenStepNumber] = useState(0);
 
   const camera = useThree((state) => state.camera);
   const navigate = useNavigate();
 
+  const enterScreenButtonClasses = `enter-website-button ${showEnterScreenButton && 'visible'}`;
+
   function enterScreen() {
-    setEnterScreenStepNumber(1);
+    if (enterScreenStepNumber === 0) {
+      setEnterScreenStepNumber(1);
+    }
   }
 
-  // TODO Miguel : delete
-  useMemo(() => {
-    if (camera) {
-      camera.position.set(x, y, z);
-      camera.zoom = zoom;
-      camera.updateProjectionMatrix();
-    }
-  }, [x, y, z, zoom]);
+  // Handle the collision of the name text with the desk in order to show the 'Enter' button.
+  function handleNameCollision() {
+    setShowEnterScreenButton(true);
+  }
 
   useFrame((state, delta) => {
     switch (enterScreenStepNumber) {
@@ -153,8 +120,7 @@ export default function Experience() {
           angularDamping={0.3}
           colliders={false}
           position={[-0.3, 8, -1]}>
-          {/* TODO Miguel : remove onClick */}
-          <Macbook onClick={enterScreen} />
+          <Macbook />
           <CuboidCollider args={[1.6, 0.5, 0.5]} position={[0, 0.95, 0]} />
         </RigidBody>
 
@@ -167,7 +133,7 @@ export default function Experience() {
           <CuboidCollider args={[1.5, 1.5, 1.5]} position={[0, 1.5, 0]} />
         </RigidBody>
 
-        <RigidBody colliders={false} position={[3.3, 45, 0]}>
+        <RigidBody colliders={false} position={[3.3, 45, 0]} onCollisionEnter={handleNameCollision}>
           <Name color={textColor} />
           <CuboidCollider args={[0.25, 0.5, 0.5]} position={[0, -1.2, 0]} />
         </RigidBody>
@@ -175,17 +141,15 @@ export default function Experience() {
         <RigidBody type="fixed" restitution={0} friction={0.7}>
           <Desk color={woodColor} />
         </RigidBody>
-
-        {/* TODO Miguel */}
-        {/* <RigidBody position={[0, 0, 0]}>
-          <mesh>
-            <boxGeometry args={[1, 1, 1]} />
-            <meshBasicMaterial color="red" />
-          </mesh>
-        </RigidBody> */}
       </Physics>
 
       <Walls color={wallColor} />
+
+      <Html position={[4, -2.5, 0]} scale={[2, 1, 1]}>
+        <button className={enterScreenButtonClasses} onClick={enterScreen}>
+          Enter
+        </button>
+      </Html>
     </>
   );
 }
