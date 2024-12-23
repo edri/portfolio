@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body,
 #root {
@@ -9,6 +13,7 @@ body,
   background: ivory;
 }
 
+/* TODO Miguel : tailwind */
 .r3f {
   touch-action: none;
 }
