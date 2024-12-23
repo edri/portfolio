@@ -29,7 +29,7 @@ export default function Macbook() {
         width={2.5}
         height={1.65}
         intensity={65}
-        color={'#ffffff'}
+        color={'#7f7f7f'}
         rotation={[-0.1, Math.PI, 0]}
         position={[0, 0.55, -1.15]}
       />

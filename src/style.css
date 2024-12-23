@@ -2,15 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Roboto';
+  font-weight: normal;
+  src: url('/fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 100;
+  src: url('/fonts/Roboto-Thin.ttf') format('truetype');
+}
+
 html,
 body,
 #root {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
   height: 100%;
-  background: ivory;
+  overscroll-behavior: none;
+  width: 100%;
 }
 
 /* TODO Miguel : tailwind */
