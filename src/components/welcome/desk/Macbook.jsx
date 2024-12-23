@@ -24,7 +24,6 @@ export default function Macbook() {
   return (
     <>
       {/* Screen light */}
-      {/* TODO Miguel : réduire intesité ? */}
       <rectAreaLight
         width={2.5}
         height={1.65}

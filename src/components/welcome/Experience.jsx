@@ -8,7 +8,7 @@ import { useState } from 'react';
 import Macbook from './desk/Macbook';
 import Coffee from './desk/Coffee';
 import Plant from './desk/Plant';
-import Name from './desk/Name';
+import Title from './desk/Title';
 import Desk from './desk/Desk';
 import Walls from './walls/Walls';
 
@@ -134,7 +134,7 @@ export default function Experience() {
         </RigidBody>
 
         <RigidBody colliders={false} position={[3.3, 45, 0]} onCollisionEnter={handleNameCollision}>
-          <Name color={textColor} />
+          <Title color={textColor} />
           <CuboidCollider args={[0.25, 0.5, 0.5]} position={[0, -1.2, 0]} />
         </RigidBody>
 

@@ -14,15 +14,16 @@
   src: url('/fonts/Roboto-Thin.ttf') format('truetype');
 }
 
+/* TODO Miguel : tailwind ? */
 html,
 body,
 #root {
+  background-color: #362b1f;
   height: 100%;
   overscroll-behavior: none;
   width: 100%;
 }
 
-/* TODO Miguel : tailwind */
 .r3f {
   touch-action: none;
 }

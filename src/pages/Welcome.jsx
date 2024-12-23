@@ -1,7 +1,7 @@
 import { Canvas } from '@react-three/fiber';
 import { Suspense } from 'react';
-import Loader from '../components/utils/Loader';
-import Experience from '../components/Experience';
+import Loader from '../components/welcome/utils/Loader';
+import Experience from '../components/welcome/Experience';
 
 export default function Welcome() {
   return (
