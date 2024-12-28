@@ -3,7 +3,7 @@ import { useControls } from 'leva';
 import { Environment, Html, OrbitControls } from '@react-three/drei';
 import { RigidBody, Physics, CuboidCollider } from '@react-three/rapier';
 import { useNavigate } from 'react-router';
-import { useFrame, useThree } from '@react-three/fiber';
+import { useFrame } from '@react-three/fiber';
 import { useState } from 'react';
 import Macbook from './desk/Macbook';
 import Coffee from './desk/Coffee';
@@ -45,7 +45,6 @@ export default function Experience() {
   const [showEnterScreenButton, setShowEnterScreenButton] = useState(false);
   const [enterScreenStepNumber, setEnterScreenStepNumber] = useState(0);
 
-  const camera = useThree((state) => state.camera);
   const navigate = useNavigate();
 
   const enterScreenButtonClasses = `enter-website-button ${showEnterScreenButton && 'visible'}`;
@@ -81,7 +80,7 @@ export default function Experience() {
       case 2:
         // Enter the screen
         state.camera.zoom += delta * 2.8;
-        camera.updateProjectionMatrix();
+        state.camera.updateProjectionMatrix();
 
         if (state.camera.zoom > 3.5) {
           setEnterScreenStepNumber(3);

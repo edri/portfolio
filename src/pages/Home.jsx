@@ -29,7 +29,6 @@ export default function Home() {
           <h2 className="text-6xl font-thin mb-4 xl:text-7xl">Hello, I&apos;m</h2>
           <h1 className="text-6xl font-bold mb-8 xl:text-7xl">Miguel Santamaria</h1>
           <h3 className="text-3xl font-thin mb-20 xl:text-4xl">and this is my resume.</h3>
-          {/* TODO Miguel : make button clickable */}
           <div className="flex items-center bg-dark-grey cursor-pointer w-12 h-12 rounded-full mx-auto transition-colors duration-300 hover:bg-dark-brown xl:w-16 xl:h-16">
             <ChevronDownIcon
               className="mx-auto size-8 xl:size-12"

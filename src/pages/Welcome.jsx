@@ -1,13 +1,22 @@
 import { Canvas } from '@react-three/fiber';
-import { Suspense } from 'react';
-import Loader from '../components/welcome/utils/Loader';
+import { useState } from 'react';
 import Experience from '../components/welcome/Experience';
+import TunnelCable from '../components/welcome/utils/TunnelCable';
+import SmartSuspense from '../components/welcome/utils/SmartSuspense';
 
 export default function Welcome() {
+  const [isSuspenseLoading, setIsSuspenseLoading] = useState(true);
+
+  function setIsLoading(isLoading) {
+    setIsSuspenseLoading(isLoading);
+  }
+
+  const canvasClasses = `r3f ${isSuspenseLoading && 'zoomed'}`;
+
   return (
     <>
       <Canvas
-        className="r3f"
+        className={canvasClasses}
         shadows
         flat
         camera={{
@@ -16,9 +25,11 @@ export default function Welcome() {
           far: 2000,
           position: [-3, 1.5, 4.5]
         }}>
-        <Suspense fallback={<Loader />}>
+        <SmartSuspense
+          fallback={<TunnelCable setIsLoading={setIsLoading} />}
+          fallbackMinDurationMs={5000}>
           <Experience />
-        </Suspense>
+        </SmartSuspense>
       </Canvas>
     </>
   );

@@ -28,6 +28,10 @@ body,
   touch-action: none;
 }
 
+.r3f.zoomed canvas {
+  transform: scale(400%);
+}
+
 .html-screen iframe {
   width: 1024px;
   height: 670px;
