@@ -17,6 +17,7 @@ const CoffeeSmokeMaterial = shaderMaterial(
 extend({ CoffeeSmokeMaterial });
 
 export default function Coffee() {
+  // TODO Miguel : remplacer modèle mug
   const { nodes, materials } = useGLTF('./models/coffee.glb');
   const perlinTexture = useTexture('./images/perlin.png');
   // Make the perlin texture repeat itself.

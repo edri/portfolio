@@ -2,6 +2,7 @@ import { Html, useGLTF } from '@react-three/drei';
 import { useEffect } from 'react';
 
 export default function Macbook() {
+  // TODO Miguel : checker license modèles 3D
   const computer = useGLTF('./models/macbook.gltf');
 
   useEffect(() => {

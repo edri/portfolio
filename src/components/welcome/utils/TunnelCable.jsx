@@ -1,4 +1,4 @@
-import { Html, shaderMaterial } from '@react-three/drei';
+import { shaderMaterial } from '@react-three/drei';
 import { extend, useFrame } from '@react-three/fiber';
 import { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
@@ -33,10 +33,6 @@ export default function TunnelCable({ setIsLoading }) {
         <planeGeometry args={[0.5, 0.5, 1, 1]} />
         <tunnelCableMaterial ref={tunnelCableMaterial} />
       </mesh>
-
-      <Html transform rotation-z={-0.15}>
-        <div className="text-red-500 font-roboto">LOADING...</div>
-      </Html>
     </>
   );
 }

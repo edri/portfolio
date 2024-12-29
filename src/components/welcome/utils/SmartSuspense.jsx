@@ -8,6 +8,7 @@ const FunkyLoader = () => {
   throw new Promise(() => {});
 };
 
+// TODO Miguel : refactore (supprimer Delayed).
 const Delayed = ({ onDelayEnd, children }) => {
   const [showLoader, setShowLoader] = useState(false);
   useEffect(() => {
