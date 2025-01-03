@@ -3,8 +3,8 @@ import { shaderMaterial, useTexture } from '@react-three/drei';
 import { extend, useFrame } from '@react-three/fiber';
 import { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import smokeVertexShader from '../shaders/smoke/vertex.glsl';
-import smokeFragmentShader from '../shaders/smoke/fragment.glsl';
+import smokeVertexShader from '../../shaders/smoke/vertex.glsl';
+import smokeFragmentShader from '../../shaders/smoke/fragment.glsl';
 
 const SmokeMaterial = shaderMaterial(
   {

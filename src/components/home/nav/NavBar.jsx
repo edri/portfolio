@@ -27,9 +27,9 @@ export default function Navbar({ sectionsRefs }) {
         <div className="text-white text-center w-8/12 xl:w-9/12">
           <ul className="uppercase">
             <NavItem id="home" text="Home" sectionRef={sectionsRefs['home']} hasMargin={false} />
+            <NavItem id="about" text="About" sectionRef={sectionsRefs['about']} />
             <NavItem id="resume" text="Resume" sectionRef={sectionsRefs['resume']} />
             <NavItem id="portfolio" text="Portfolio" sectionRef={sectionsRefs['portfolio']} />
-            <NavItem id="about" text="About" sectionRef={sectionsRefs['about']} />
             <NavItem id="contact" text="Contact" sectionRef={sectionsRefs['contact']} />
           </ul>
         </div>

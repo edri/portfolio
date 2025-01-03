@@ -16,7 +16,7 @@ export default function Navitem({ id, text, sectionRef, hasMargin = true }) {
   return (
     <>
       <li className={classes}>
-        <a href={`#${id}`} onClick={(event) => scrollToSectionRef(event)}>
+        <a className="text-white" href={`#${id}`} onClick={(event) => scrollToSectionRef(event)}>
           {text}
         </a>
       </li>

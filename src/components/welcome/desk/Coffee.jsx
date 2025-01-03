@@ -1,5 +1,5 @@
 import { useGLTF } from '@react-three/drei';
-import Smoke from '../../../common/Smoke';
+import Smoke from '../../common/Smoke';
 
 export default function Coffee() {
   // TODO Miguel : remplacer modèle mug

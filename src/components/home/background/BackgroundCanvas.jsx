@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber';
-import Smoke from '../../../common/Smoke';
+import Smoke from '../../common/Smoke';
 
 export default function BackgroundSmokeCanvas() {
   return (

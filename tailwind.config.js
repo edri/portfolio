@@ -16,6 +16,9 @@ export default {
       },
       fontFamily: {
         roboto: ['Roboto', 'ui-sans-serif', 'sans-serif']
+      },
+      gridTemplateColumns: {
+        resume: 'max-content max-content auto'
       }
     }
   },
