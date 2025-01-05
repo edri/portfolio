@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 @font-face {
+  font-family: 'Bangers';
+  font-weight: normal;
+  src: url('/fonts/bangers-v20-latin-regular.woff');
+}
+@tailwind utilities;
+
+@font-face {
   font-family: 'Roboto';
   font-weight: normal;
   src: url('/fonts/Roboto-Regular.ttf') format('truetype');
@@ -32,13 +39,88 @@ p {
   margin-bottom: 1em;
 }
 
+.loader-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.loader-container {
+  transform: translateX(-50%) translateY(calc(-50% - 4.5em)) !important;
+}
+
+.loader {
+  --s: 30px;
+  --g: 10px;
+
+  width: calc(3 * (1.353 * var(--s) + var(--g)));
+  display: grid;
+  justify-items: end;
+  aspect-ratio: 3;
+  overflow: hidden;
+  --_m: linear-gradient(90deg, #0000, #000 15px calc(100% - 15px), #0000);
+  -webkit-mask: var(--_m);
+  mask: var(--_m);
+  transform: scale(300%);
+}
+
+.loader:before {
+  content: '';
+  width: calc(4 * 100% / 3);
+  background: conic-gradient(
+    from -90deg at var(--s) calc(0.353 * var(--s)),
+    #fff 135deg,
+    #666 0 270deg,
+    #aaa 0
+  );
+  --_m: linear-gradient(
+      to bottom right,
+      #0000 calc(0.25 * var(--s)),
+      #000 0 calc(100% - calc(0.25 * var(--s)) - 1.414 * var(--g)),
+      #0000 0
+    ),
+    conic-gradient(from -90deg at right var(--g) bottom var(--g), #000 90deg, #0000 0);
+  -webkit-mask: var(--_m);
+  mask: var(--_m);
+  background-size: calc(100% / 4) 100%;
+  -webkit-mask-size: calc(100% / 4) 100%;
+  mask-size: calc(100% / 4) 100%;
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+  animation: l8 1s infinite linear;
+}
+
+@keyframes l8 {
+  to {
+    transform: translate(calc(100% / 4));
+  }
+}
+
+.loader-text {
+  font-weight: bold;
+  font-family: Bangers, sans-serif;
+  animation: l1 1s linear infinite alternate;
+  text-transform: uppercase;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 1.5em;
+}
+
+.loader-text:before {
+  content: 'Loading...';
+}
+
+@keyframes l1 {
+  to {
+    opacity: 0;
+  }
+}
+
 .r3f,
 .r3f-background-smoke {
   touch-action: none;
-}
-
-.r3f.zoomed canvas {
-  transform: scale(400%);
 }
 
 .r3f-background-smoke {
@@ -60,14 +142,9 @@ p {
 
 .enter-website-button {
   box-shadow: 3px 3px 20px black;
-  background-color: #362b1f;
-  border: 1px solid #000000;
-  border-radius: 5px;
-  color: #e1b180;
-  cursor: pointer;
-  font-family: 'Melted Monster', Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 3em;
-  letter-spacing: 2px;
+  letter-spacing: 1.8px;
   opacity: 0;
   padding: 0.2em 0.4px;
   transition: opacity 1s;

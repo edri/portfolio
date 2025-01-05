@@ -47,7 +47,7 @@ export default function Experience() {
 
   const navigate = useNavigate();
 
-  const enterScreenButtonClasses = `enter-website-button ${showEnterScreenButton && 'visible'}`;
+  const enterScreenButtonClasses = `enter-website-button rounded border border-dark-grey bg-dark-grey text-beige cursor-pointer hover:border-beige ${showEnterScreenButton && 'visible'}`;
 
   function enterScreen() {
     if (enterScreenStepNumber === 0) {
