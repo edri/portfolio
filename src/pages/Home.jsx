@@ -1,10 +1,11 @@
 import {
-  AcademicCapIcon,
-  ArrowPathRoundedSquareIcon,
-  BriefcaseIcon,
-  ComputerDesktopIcon,
-  MusicalNoteIcon
-} from '@heroicons/react/24/solid';
+  HiAcademicCap,
+  HiArrowPathRoundedSquare,
+  HiBriefcase,
+  HiComputerDesktop,
+  HiMusicalNote
+} from 'react-icons/hi2';
+
 import { useRef } from 'react';
 import NavBar from '../components/home/nav/NavBar';
 import BackgroundCanvas from '../components/home/background/BackgroundCanvas';
@@ -13,6 +14,7 @@ import HomeSection from '../components/home/sections/HomeSection';
 import ResumeSection from '../components/home/sections/ResumeSection';
 import PortfolioGrid from '../components/home/portfolio/PortfolioGrid';
 import PortfolioCard from '../components/home/portfolio/PortfolioCard';
+import Footer from '../components/home/Footer';
 
 export default function Home() {
   const sectionsRefs = {
@@ -22,6 +24,12 @@ export default function Home() {
     about: useRef(),
     contact: useRef()
   };
+
+  function goToUrl(url, event) {
+    event.preventDefault();
+    event.stopPropagation();
+    window.open(url, '_blank').focus();
+  }
 
   return (
     <>
@@ -73,7 +81,7 @@ export default function Home() {
           </p>
         </Section>
         <Section sectionsRefs={sectionsRefs} name="resume" title="Resume">
-          <ResumeSection title="Education" IconComponent={AcademicCapIcon} marginTop={false}>
+          <ResumeSection title="Education" IconComponent={HiAcademicCap} marginTop={false}>
             <div>1997-2008</div>
             <div>Nursery, primary and secondary schools</div>
             <div className="text-sm">Vionnaz, Switzerland</div>
@@ -115,7 +123,7 @@ export default function Home() {
             </div>
             <div className="text-sm">Yverdon-les-Bains, Switzerland</div>
           </ResumeSection>
-          <ResumeSection title="Continuing Education" IconComponent={ArrowPathRoundedSquareIcon}>
+          <ResumeSection title="Continuing Education" IconComponent={HiArrowPathRoundedSquare}>
             <div>2024-2025</div>
             <div>
               <a href="https://threejs-journey.com/" target="_blank" rel="noreferrer">
@@ -125,7 +133,7 @@ export default function Home() {
             </div>
             <div></div>
           </ResumeSection>
-          <ResumeSection title="Professional Experience" IconComponent={BriefcaseIcon}>
+          <ResumeSection title="Professional Experience" IconComponent={HiBriefcase}>
             <div>2010-2013</div>
             <div>
               <p className="m-0">
@@ -185,7 +193,7 @@ export default function Home() {
             </div>
             <div className="text-sm">Employment</div>
           </ResumeSection>
-          <ResumeSection title="Computer Skills" IconComponent={ComputerDesktopIcon}>
+          <ResumeSection title="Computer Skills" IconComponent={HiComputerDesktop}>
             <div>
               <ul className="list-disc list-inside">
                 <li className="mb-2">
@@ -208,7 +216,7 @@ export default function Home() {
               </ul>
             </div>
           </ResumeSection>
-          <ResumeSection title="Hobbies" IconComponent={MusicalNoteIcon}>
+          <ResumeSection title="Hobbies" IconComponent={HiMusicalNote}>
             <div>Music, writing, photography, art, sport & travels</div>
           </ResumeSection>
         </Section>
@@ -238,9 +246,13 @@ export default function Home() {
                 the first phase was heavily inspired by a Three.js Journey course, while the second
                 phase comes from my imagination.
               </p>
-              <a href="https://github.com/edri/halloween" target="_blank" rel="noreferrer">
-                GitHub repository
-              </a>
+              <button
+                className="text-beige"
+                onClick={(event) => {
+                  goToUrl('https://github.com/edri/halloween', event);
+                }}>
+                Github repository
+              </button>
             </PortfolioCard>
             {/* TODO Miguel: héberger l'app sur mon site et changer le lien */}
             <PortfolioCard
@@ -273,7 +285,7 @@ export default function Home() {
               date="2015-2016"
               title="Swipe.Me"
               link="https://github.com/edri/Swipe.Me"
-              keywords="#javaScript #node #express #instagram #frontend #backend #tinderLike">
+              keywords="#javaScript #angularJS #node #express #instagram #frontend #backend #tinderLike">
               This rather avant-garde application was a Tinder-like that allowed you to swipe left
               (dislike) or right (like) on Instagram posts based on a keyword search. Unfortunately,
               it too is no longer running, for the same reason as GeoTwit. However, images and code
@@ -308,6 +320,7 @@ export default function Home() {
         </Section>
       </div>
       {/* TODO Miguel : footer */}
+      <Footer />
     </>
   );
 }

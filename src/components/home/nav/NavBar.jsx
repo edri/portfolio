@@ -4,7 +4,7 @@ import NavItem from './NavItem';
 
 export default function Navbar({ sectionsRefs }) {
   const [scrolled, setScrolled] = useState(false);
-  const navClasses = `fixed flex items-center h-24 w-full p-8 z-20 transition-colors duration-300 ${scrolled ? 'bg-dark-grey' : 'bg-transparent'}`;
+  const navClasses = `fixed flex items-center h-24 w-full p-8 z-20 border-b transition-colors duration-300 ${scrolled ? 'bg-dark-grey border-black' : 'bg-transparent border-transparent'}`;
 
   const handleScroll = () => {
     if (window.scrollY > 20) {
