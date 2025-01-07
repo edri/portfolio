@@ -28,8 +28,8 @@ export default function Navbar({ sectionsRefs }) {
           <ul className="uppercase">
             <NavItem id="home" text="Home" sectionRef={sectionsRefs['home']} hasMargin={false} />
             <NavItem id="about" text="About" sectionRef={sectionsRefs['about']} />
-            <NavItem id="resume" text="Resume" sectionRef={sectionsRefs['resume']} />
             <NavItem id="portfolio" text="Portfolio" sectionRef={sectionsRefs['portfolio']} />
+            <NavItem id="resume" text="Resume" sectionRef={sectionsRefs['resume']} />
             <NavItem id="contact" text="Contact" sectionRef={sectionsRefs['contact']} />
           </ul>
         </div>

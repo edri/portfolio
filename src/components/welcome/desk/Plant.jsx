@@ -2,7 +2,6 @@ import { useGLTF } from '@react-three/drei';
 import PropTypes from 'prop-types';
 
 export default function Plant({ scale }) {
-  // TODO Miguel : loader en global ?
   const { nodes, materials } = useGLTF('./models/plant.glb');
 
   return (

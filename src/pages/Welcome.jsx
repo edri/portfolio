@@ -3,6 +3,7 @@ import Experience from '../components/welcome/Experience';
 import SmartSuspense from '../components/welcome/utils/SmartSuspense';
 import Loader from '../components/welcome/utils/Loader';
 
+// TODO Miguel : responsiveness
 export default function Welcome() {
   return (
     <>
@@ -16,7 +17,7 @@ export default function Welcome() {
           far: 2000,
           position: [-3, 1.5, 4.5]
         }}>
-        <SmartSuspense fallback={<Loader />} fallbackMinDurationMs={3000}>
+        <SmartSuspense fallback={<Loader />} fallbackMinDurationMs={4000}>
           <Experience />
         </SmartSuspense>
       </Canvas>

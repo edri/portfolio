@@ -37,7 +37,7 @@ export default function Home() {
       <HomeSection sectionsRefs={sectionsRefs} />
       <div className="relative">
         <BackgroundCanvas />
-        {/* TODO Miguel: ajouter des images ou des canvas 3D pour dynamiser le site */}
+        {/* TODO Miguel: ajouter des images ou des canvas 3D pour dynamiser le site ? */}
         <Section sectionsRefs={sectionsRefs} name="about" title="About">
           <p>
             Resourceful, flexible and structured, I am a web developer used to follow specifications
@@ -80,6 +80,90 @@ export default function Home() {
             . Feel free to check it out!
           </p>
         </Section>
+        <Section sectionsRefs={sectionsRefs} name="portfolio" title="Portfolio">
+          <PortfolioGrid>
+            <PortfolioCard
+              date="2018-present"
+              title="Portail CIIP"
+              link="https://portail.ciip.ch/"
+              keywords="#VueJs #SpringBoot #frontend #backend #education #teamWork #CIIP">
+              This application is a portal for several sub-applications used by one of our main
+              customers at HEIG-VD: the CIIP. It manages the various study plans, teaching resources
+              and digital resources for schools in French-speaking Switzerland, and has an advanced
+              authentication system. We developed the site from scratch, both on the backend and the
+              frontend. Feel free to browse the &quot;<i>PER</i>&quot; and &quot;
+              <i>Ressources Numériques</i>&quot; applications that do not require authentication.
+            </PortfolioCard>
+            {/* TODO Miguel : héberger le site Halloween */}
+            <PortfolioCard
+              date="2024"
+              title="Halloween 👻"
+              link="https://edri.github.io/"
+              keywords="#threeJs #javaScript #frontend #imagination #spooky">
+              <p>
+                I developed this 3D site during a roadtrip in the USA for one of my friends to
+                organise her Halloween party and invite people as appropriate. The haunted house in
+                the first phase was heavily inspired by a Three.js Journey course, while the second
+                phase comes from my imagination.
+              </p>
+              <button
+                className="text-beige"
+                onClick={(event) => {
+                  goToUrl('https://github.com/edri/halloween', event);
+                }}>
+                Github repository
+              </button>
+            </PortfolioCard>
+            {/* TODO Miguel: héberger l'app sur mon site et changer le lien */}
+            <PortfolioCard
+              date="2023"
+              title="Quiz-Anatomie (in progress...)"
+              link="https://github.com/edri/quiz-anatomie"
+              keywords="#vueJs #frontend #anatomy #fun">
+              This little personal project lets you revise your anatomy using a quiz inspired by the
+              quiz formula available on geoguessr.com. A bone and/or muscle diagram is displayed
+              with different points to be named at random. The idea was to combine fun with
+              learning! However, the UI is pretty basic and development of the application is on
+              hold due to lack of time. Maybe one day I&apos;ll get back into it!
+            </PortfolioCard>
+            {/* TODO Miguel: mettre images de l'app dans le readme du repo */}
+            <PortfolioCard
+              date="2016"
+              title="GeoTwit"
+              link="https://github.com/edri/GeoTwit"
+              keywords="#javaScript #express #scala #twitterX #frontend #backend #bachelorThesis">
+              This was my Bachelor&apos;s thesis. This application was connected to the API of X
+              (formerly Twitter) and allowed you to search for one or more keywords and display in
+              real time on a map the different Tweets related to these subjects and posted by people
+              all over the world. It was also possible to access a technical panel containing a
+              number of graphs for analysing the data. Unfortunately, it is no longer running, as
+              the social network&apos;s API has changed considerably since then. However, images and
+              code are available on my GitHub repository, which you can access by clicking on this
+              card.
+            </PortfolioCard>
+            <PortfolioCard
+              date="2015-2016"
+              title="Swipe.Me"
+              link="https://github.com/edri/Swipe.Me"
+              keywords="#javaScript #angularJS #node #express #instagram #frontend #backend #tinderLike">
+              This rather avant-garde application was a Tinder-like that allowed you to swipe left
+              (dislike) or right (like) on Instagram posts based on a keyword search. Unfortunately,
+              it too is no longer running, for the same reason as GeoTwit. However, images and code
+              are also available on my GitHub repository, which you can access by clicking on this
+              card.
+            </PortfolioCard>
+            <PortfolioCard
+              date="2015-2016"
+              title="VDE-Gallo"
+              link="https://vdegallo.com/en/"
+              keywords="#php #wordpress #frontend #backend #vdeGallo #music">
+              This music application is a site specialising in the recording, production and
+              distribution of records, cassettes, CDs and dematerialised items. I successfully
+              developed this site during my studies in coordination with a private client to earn
+              some pocket money.
+            </PortfolioCard>
+          </PortfolioGrid>
+        </Section>
         <Section sectionsRefs={sectionsRefs} name="resume" title="Resume">
           <ResumeSection title="Education" IconComponent={HiAcademicCap} marginTop={false}>
             <div>1997-2008</div>
@@ -113,7 +197,7 @@ export default function Home() {
               <p className="text-sm m-0">Bachelor of Science in Software Engineering</p>
               <p className="text-sm m-0">Summer University Program: SJSU, San Jose, USA</p>
               <p className="text-sm m-0">
-                GiTi prize awarded for Bachelor’s thesis{' '}
+                GiTi prize and maximum score awarded for Bachelor’s thesis{' '}
                 <i>
                   <a href="https://github.com/edri/GeoTwit" target="_blank" rel="noreferrer">
                     Geographical correlation of topics on Twitter
@@ -220,90 +304,6 @@ export default function Home() {
             <div>Music, writing, photography, art, sport & travels</div>
           </ResumeSection>
         </Section>
-        <Section sectionsRefs={sectionsRefs} name="portfolio" title="Portfolio">
-          <PortfolioGrid>
-            <PortfolioCard
-              date="2018-present"
-              title="Portail CIIP"
-              link="https://portail.ciip.ch/"
-              keywords="#VueJs #SpringBoot #frontend #backend #education #teamWork #CIIP">
-              This application is a portal for several sub-applications used by one of our main
-              customers at HEIG-VD: the CIIP. It manages the various study plans, teaching resources
-              and digital resources for schools in French-speaking Switzerland, and has an advanced
-              authentication system. We developed the site from scratch, both on the backend and the
-              frontend. Feel free to browse the &quot;<i>PER</i>&quot; and &quot;
-              <i>Ressources Numériques</i>&quot; applications that do not require authentication.
-            </PortfolioCard>
-            {/* TODO Miguel : héberger le site Halloween */}
-            <PortfolioCard
-              date="2024"
-              title="Halloween 👻"
-              link="https://edri.github.io/"
-              keywords="#threeJs #javaScript #frontend #imagination #spooky">
-              <p>
-                I developed this 3D site during a roadtrip in the USA for one of my friends to
-                organise her Halloween party and invite people as appropriate. The haunted house in
-                the first phase was heavily inspired by a Three.js Journey course, while the second
-                phase comes from my imagination.
-              </p>
-              <button
-                className="text-beige"
-                onClick={(event) => {
-                  goToUrl('https://github.com/edri/halloween', event);
-                }}>
-                Github repository
-              </button>
-            </PortfolioCard>
-            {/* TODO Miguel: héberger l'app sur mon site et changer le lien */}
-            <PortfolioCard
-              date="2023"
-              title="Quiz-Anatomie (in progress...)"
-              link="https://github.com/edri/quiz-anatomie"
-              keywords="#vueJs #frontend #anatomy #fun">
-              This little personal project lets you revise your anatomy using a quiz inspired by the
-              quiz formula available on geoguessr.com. A bone and/or muscle diagram is displayed
-              with different points to be named at random. The idea was to combine fun with
-              learning! However, the UI is pretty basic and development of the application is on
-              hold due to lack of time. Maybe one day I&apos;ll get back into it!
-            </PortfolioCard>
-            {/* TODO Miguel: mettre images de l'app dans le readme du repo */}
-            <PortfolioCard
-              date="2016"
-              title="GeoTwit"
-              link="https://github.com/edri/GeoTwit"
-              keywords="#javaScript #express #scala #twitterX #frontend #backend #bachelorThesis">
-              This was my Bachelor&apos;s thesis. This application was connected to the API of X
-              (formerly Twitter) and allowed you to search for one or more keywords and display in
-              real time on a map the different Tweets related to these subjects and posted by people
-              all over the world. It was also possible to access a technical panel containing a
-              number of graphs for analysing the data. Unfortunately, it is no longer running, as
-              the social network&apos;s API has changed considerably since then. However, images and
-              code are available on my GitHub repository, which you can access by clicking on this
-              card.
-            </PortfolioCard>
-            <PortfolioCard
-              date="2015-2016"
-              title="Swipe.Me"
-              link="https://github.com/edri/Swipe.Me"
-              keywords="#javaScript #angularJS #node #express #instagram #frontend #backend #tinderLike">
-              This rather avant-garde application was a Tinder-like that allowed you to swipe left
-              (dislike) or right (like) on Instagram posts based on a keyword search. Unfortunately,
-              it too is no longer running, for the same reason as GeoTwit. However, images and code
-              are also available on my GitHub repository, which you can access by clicking on this
-              card.
-            </PortfolioCard>
-            <PortfolioCard
-              date="2015-2016"
-              title="VDE-Gallo"
-              link="https://vdegallo.com/en/"
-              keywords="#php #wordpress #frontend #backend #vdeGallo #music">
-              This music application is a site specialising in the recording, production and
-              distribution of records, cassettes, CDs and dematerialised items. I successfully
-              developed this site during my studies in coordination with a private client to earn
-              some pocket money.
-            </PortfolioCard>
-          </PortfolioGrid>
-        </Section>
         <Section sectionsRefs={sectionsRefs} name="contact" title="Contact">
           <form>
             <div className="flex flex-col text-black">
@@ -319,7 +319,6 @@ export default function Home() {
           </form>
         </Section>
       </div>
-      {/* TODO Miguel : footer */}
       <Footer />
     </>
   );

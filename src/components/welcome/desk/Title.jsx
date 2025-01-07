@@ -11,7 +11,7 @@ export default function Name({ color }) {
           font="./fonts/bangers-v20-latin-regular.woff"
           fontSize={0.25}
           rotation-y={-1.25}
-          position-y={0.25}
+          position-y={0.8}
           maxWidth={2}
           textAlign="center">
           Welcome to my
@@ -21,7 +21,7 @@ export default function Name({ color }) {
           font="./fonts/bangers-v20-latin-regular.woff"
           fontSize={0.8}
           rotation-y={-1.25}
-          position-y={-0.4}
+          position-y={0.15}
           maxWidth={4}
           textAlign="center">
           WEBSITE

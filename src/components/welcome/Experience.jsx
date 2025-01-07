@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { useControls } from 'leva';
+// import { useControls } from 'leva';
 import { Environment, Html, OrbitControls } from '@react-three/drei';
 import { RigidBody, Physics, CuboidCollider } from '@react-three/rapier';
 import { useNavigate } from 'react-router';
@@ -13,41 +13,37 @@ import Desk from './desk/Desk';
 import Walls from './walls/Walls';
 
 export default function Experience() {
-  // TODO Miguel
-  // const woodColor = '#E1B180';
-  // const wallColor = '#362B1F';
-  // const textColor = '#FFFFFF';
-  // const environmentRotationY = 17;
-  // const directionalLightX = 5;
-  // const x = -3;
-  // const y = 1.5;
-  // const z = 4.5;
-  // const zoom = 1;
+  const woodColor = '#E1B180';
+  const wallColor = '#362B1F';
+  const textColor = '#FFFFFF';
+  const environmentRotationY = 17;
+  const directionalLightX = 5;
 
-  const { woodColor, wallColor, textColor, environmentRotationY, directionalLightX } = useControls({
-    woodColor: '#E1B180',
-    wallColor: '#362B1F',
-    textColor: '#FFFFFF',
-    environmentRotationY: {
-      value: 17,
-      min: 1,
-      max: 120,
-      step: 0.01
-    },
-    directionalLightX: {
-      value: 5,
-      min: 0,
-      max: 50,
-      step: 0.01
-    }
-  });
+  // DEBUG
+  // const { woodColor, wallColor, textColor, environmentRotationY, directionalLightX } = useControls({
+  //   woodColor: '#E1B180',
+  //   wallColor: '#362B1F',
+  //   textColor: '#FFFFFF',
+  //   environmentRotationY: {
+  //     value: 17,
+  //     min: 1,
+  //     max: 120,
+  //     step: 0.01
+  //   },
+  //   directionalLightX: {
+  //     value: 5,
+  //     min: 0,
+  //     max: 50,
+  //     step: 0.01
+  //   }
+  // });
 
   const [showEnterScreenButton, setShowEnterScreenButton] = useState(false);
   const [enterScreenStepNumber, setEnterScreenStepNumber] = useState(0);
 
   const navigate = useNavigate();
 
-  const enterScreenButtonClasses = `enter-website-button rounded border border-dark-grey bg-dark-grey text-beige cursor-pointer hover:border-beige ${showEnterScreenButton && 'visible'}`;
+  const enterScreenButtonClasses = `enter-website-button rounded border border-dark-brown bg-dark-brown text-beige cursor-pointer shadow-lg hover:border-beige ${showEnterScreenButton && 'visible'}`;
 
   function enterScreen() {
     if (enterScreenStepNumber === 0) {
@@ -100,7 +96,6 @@ export default function Experience() {
         environmentRotation={[0, Math.PI / environmentRotationY, 0]}
       />
 
-      <directionalLight castShadow position={[0, 2, 2]} intensity={2} shadow-normalBias={0.04} />
       <directionalLight
         castShadow
         position={[directionalLightX, 2, 2]}
@@ -108,8 +103,8 @@ export default function Experience() {
         shadow-normalBias={0.04}
       />
 
-      {/* TODO Miguel : remove OrbitControls */}
-      <OrbitControls makeDefault />
+      {/* OrbitControls with user interaction disabled */}
+      <OrbitControls makeDefault enableRotate={false} enablePan={false} enableZoom={false} />
 
       <Physics debug={false} gravity={[0, -9.08, 0]}>
         <RigidBody
