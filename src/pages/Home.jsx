@@ -15,6 +15,7 @@ import ResumeSection from '../components/home/sections/ResumeSection';
 import PortfolioGrid from '../components/home/portfolio/PortfolioGrid';
 import PortfolioCard from '../components/home/portfolio/PortfolioCard';
 import Footer from '../components/home/Footer';
+import ContactForm from '../components/home/form/ContactForm';
 
 export default function Home() {
   const sectionsRefs = {
@@ -305,18 +306,7 @@ export default function Home() {
           </ResumeSection>
         </Section>
         <Section sectionsRefs={sectionsRefs} name="contact" title="Contact">
-          <form>
-            <div className="flex flex-col text-black">
-              <input className="rounded p-4 mb-6" type="text" placeholder="Your name" />
-              <input className="rounded p-4 mb-6" type="email" placeholder="Your email" />
-              <textarea className="rounded p-4 mb-6" rows={10} placeholder="Your message" />
-              <input
-                className="rounded border border-dark-grey bg-dark-grey text-beige cursor-pointer p-4 hover:border-beige"
-                type="submit"
-                value="Send Message"
-              />
-            </div>
-          </form>
+          <ContactForm />
         </Section>
       </div>
       <Footer />

@@ -5,6 +5,7 @@ import glsl from 'vite-plugin-glsl';
 
 export default {
   root: 'src/',
+  envDir: '../',
   publicDir: '../public/',
   plugins: [
     // Restart server on static/public file change
