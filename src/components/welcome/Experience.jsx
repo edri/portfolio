@@ -135,6 +135,7 @@ export default function Experience() {
       <OrbitControls makeDefault enableRotate={false} enablePan={false} enableZoom={false} />
 
       <Physics debug={false} gravity={[0, -9.08, 0]}>
+        {/* TODO Miguel : replace the Macbook by a smartphone in mobile mode */}
         <RigidBody
           mass={20}
           restitution={0.2}

@@ -14,7 +14,7 @@ import HomeSection from '../components/home/sections/HomeSection';
 import ResumeSection from '../components/home/sections/ResumeSection';
 import PortfolioGrid from '../components/home/portfolio/PortfolioGrid';
 import PortfolioCard from '../components/home/portfolio/PortfolioCard';
-import Footer from '../components/home/Footer';
+import Footer from '../components/home/footer/Footer';
 import ContactForm from '../components/home/form/ContactForm';
 
 const isMobileOrTablet = (() => {
