@@ -8,21 +8,21 @@ export default function Navbar({ sectionsRefs }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navClasses = `fixed flex flex-col items-start text-base bg-white text-black min-h-16 w-full p-4 z-20 border-b transition-colors duration-300 sm:flex-row sm:items-center sm:text-sm sm:text-white sm:p-8 xl:text-base xl:h-24 ${scrolled ? 'sm:bg-dark-grey sm:border-black' : 'sm:bg-transparent sm:border-transparent'}`;
 
-  const handleScroll = () => {
+  function handleScroll() {
     if (window.scrollY > 20) {
       setScrolled(true);
     } else {
       setScrolled(false);
     }
-  };
+  }
 
-  const toggleMenu = () => {
+  function toggleMenu() {
     setIsMenuOpen(!isMenuOpen);
-  };
+  }
 
-  const closeMenu = () => {
+  function closeMenu() {
     setIsMenuOpen(false);
-  };
+  }
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);

@@ -7,7 +7,7 @@ export default function Section({ children, sectionsRefs, name, title }) {
       <section
         ref={sectionsRefs[name]}
         id={name}
-        className="relative scroll-mt-16 text-white px-4 py-8 z-10 md:px-8 lg:px-12 xl:scroll-mt-24 xl:px-48 xl:py-12">
+        className="bg-[#121212] relative scroll-mt-16 text-white px-4 py-8 z-10 sm:bg-transparent md:px-8 lg:px-12 xl:scroll-mt-24 xl:px-48 xl:py-12">
         <h1 className="text-3xl font-bold mb-1.5">{title}</h1>
         <Line />
         <div className="sm:text-justify">{children}</div>
