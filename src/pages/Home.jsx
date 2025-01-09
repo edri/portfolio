@@ -38,7 +38,6 @@ export default function Home() {
       <HomeSection sectionsRefs={sectionsRefs} />
       <div className="relative">
         <BackgroundCanvas />
-        {/* TODO Miguel: ajouter des images ou des canvas 3D pour dynamiser le site ? */}
         <Section sectionsRefs={sectionsRefs} name="about" title="About">
           <p>
             Resourceful, flexible and structured, I am a web developer used to follow specifications
@@ -167,10 +166,10 @@ export default function Home() {
         </Section>
         <Section sectionsRefs={sectionsRefs} name="resume" title="Resume">
           <ResumeSection title="Education" IconComponent={HiAcademicCap} marginTop={false}>
-            <div>1997-2008</div>
+            <div className="mt-6 sm:m-0">1997-2008</div>
             <div>Nursery, primary and secondary schools</div>
             <div className="text-sm">Vionnaz, Switzerland</div>
-            <div>2008-2012</div>
+            <div className="mt-6 sm:m-0">2008-2012</div>
             <div>
               <p className="m-0">
                 <a href="https://eptm.ch/" target="_blank" rel="noreferrer">
@@ -187,7 +186,7 @@ export default function Home() {
               </p>
             </div>
             <div className="text-sm">Sion, Switzerland</div>
-            <div>2013-2016</div>
+            <div className="mt-6 sm:m-0">2013-2016</div>
             <div>
               <p className="m-0">
                 <a href="https://heig-vd.ch/" target="_blank" rel="noreferrer">
@@ -209,7 +208,7 @@ export default function Home() {
             <div className="text-sm">Yverdon-les-Bains, Switzerland</div>
           </ResumeSection>
           <ResumeSection title="Continuing Education" IconComponent={HiArrowPathRoundedSquare}>
-            <div>2024-2025</div>
+            <div className="mt-6 sm:m-0">2024-2025</div>
             <div>
               <a href="https://threejs-journey.com/" target="_blank" rel="noreferrer">
                 Three.js Journey
@@ -219,7 +218,7 @@ export default function Home() {
             <div></div>
           </ResumeSection>
           <ResumeSection title="Professional Experience" IconComponent={HiBriefcase}>
-            <div>2010-2013</div>
+            <div className="mt-6 sm:m-0">2010-2013</div>
             <div>
               <p className="m-0">
                 <a href="https://synchrotech.ch/en/" target="_blank" rel="noreferrer">
@@ -235,7 +234,7 @@ export default function Home() {
               <p className="text-sm m-0">Research and analysis of new technologies</p>
             </div>
             <div className="text-sm">Internships & Employment</div>
-            <div>2016-present</div>
+            <div className="mt-6 sm:m-0">2016-present</div>
             <div>
               <p className="m-0">
                 <a href="https://heig-vd.ch/" target="_blank" rel="noreferrer">
@@ -278,7 +277,9 @@ export default function Home() {
             </div>
             <div className="text-sm">Employment</div>
           </ResumeSection>
+          {/* TODO Miguel : icônes de technologies */}
           <ResumeSection title="Computer Skills" IconComponent={HiComputerDesktop}>
+            <div></div>
             <div>
               <ul className="list-disc list-inside">
                 <li className="mb-2">
@@ -296,10 +297,12 @@ export default function Home() {
                   <strong>Operating systems</strong>: macOS, Linux, Windows
                 </li>
                 <li>
-                  <strong>Miscellaneous</strong>: Git, LaTeX, Markdown, Docker, Photoshop, Office
+                  <strong>Miscellaneous</strong>: Git, LaTeX, Markdown, Docker, Kubernetes,
+                  Atlassian JIRA / BitBucket, Photoshop, Office
                 </li>
               </ul>
             </div>
+            <div></div>
           </ResumeSection>
           <ResumeSection title="Hobbies" IconComponent={HiMusicalNote}>
             <div>Music, writing, photography, art, sport & travels</div>

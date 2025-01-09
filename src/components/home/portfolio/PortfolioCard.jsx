@@ -12,7 +12,7 @@ export default function PortfolioCard({ children, date, title, link, keywords })
           </div>
           <h2 className="text-2xl text-beige mb-4">{title}</h2>
           <div>{children}</div>
-          <div className="text-sm text-[#aaa] italic mt-6">{keywords}</div>
+          <div className="text-left text-sm text-[#aaa] italic mt-6">{keywords}</div>
         </div>
       </a>
     </>

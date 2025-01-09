@@ -8,7 +8,7 @@ export default function ResumeSection({ children, title, IconComponent, marginTo
           <IconComponent className="size-6 mr-4" />
           <h2 className="text-2xl font-bold">{title}</h2>
         </div>
-        <div className="grid grid-cols-resume gap-8">{children}</div>
+        <div className="sm:grid sm:grid-cols-resume sm:gap-8">{children}</div>
       </section>
     </>
   );

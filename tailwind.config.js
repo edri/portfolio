@@ -18,7 +18,7 @@ export default {
         roboto: ['Roboto', 'ui-sans-serif', 'sans-serif']
       },
       gridTemplateColumns: {
-        resume: 'max-content max-content auto'
+        resume: 'max-content auto auto'
       }
     }
   },
