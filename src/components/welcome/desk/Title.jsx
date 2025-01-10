@@ -5,7 +5,6 @@ export default function Name({ color }) {
   return (
     <>
       <Float rotationIntensity={0.4}>
-        {/* TODO Miguel : change text? */}
         <Text
           color={color}
           font="./fonts/bangers-v20-latin-regular.woff"
@@ -24,7 +23,7 @@ export default function Name({ color }) {
           position-y={0.15}
           maxWidth={4}
           textAlign="center">
-          WEBSITE
+          PORTFOLIO
         </Text>
       </Float>
     </>
