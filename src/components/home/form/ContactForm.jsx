@@ -1,12 +1,27 @@
-import { useState } from 'react';
+/* eslint-disable no-undef */
+import { useEffect, useState } from 'react';
 
 export default function ContactForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [token, setToken] = useState('');
   const [sending, setSending] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [success, setSuccess] = useState(false);
+
+  useEffect(() => {
+    // Is called once the DOM is ready.
+    turnstile.ready(function () {
+      turnstile.render('#turnstileWidget', {
+        sitekey: import.meta.env.VITE_CLOUDFLARE_SITE_KEY,
+        callback: function (token) {
+          // Trigger when the user successfully passed the Cloudflare Turnstile challenge.
+          setToken(token);
+        }
+      });
+    });
+  }, [turnstile]);
 
   function sendEmail(event) {
     event.preventDefault();
@@ -16,7 +31,7 @@ export default function ContactForm() {
     setErrorMessage('');
     setSuccess(false);
 
-    const body = JSON.stringify({ name, email, message });
+    const body = JSON.stringify({ name, email, message, token });
 
     fetch(`${import.meta.env.VITE_API_URL}/email`, {
       method: 'POST',
@@ -37,6 +52,9 @@ export default function ContactForm() {
       .then(() => {
         setSuccess(true);
         setSending(false);
+        setName('');
+        setEmail('');
+        setMessage('');
       })
       .catch(() => {
         setErrorMessage(
@@ -74,13 +92,13 @@ export default function ContactForm() {
             value={message}
             onChange={(event) => setMessage(event.target.value)}
           />
+          <div id="turnstileWidget" className="mb-4"></div>
           <input
             className="rounded border border-dark-grey bg-dark-grey text-beige cursor-pointer p-4 disabled:bg-gray-700 disabled:text-gray-400 disabled:cursor-not-allowed hover:border-beige disabled:hover:border-dark-grey"
             type="submit"
             value="Send Message"
             disabled={sending}
           />
-          {/* TODO Miguel : captcha */}
           {errorMessage && (
             <div className="rounded text-red-600 bg-red-200 border border-red-600 p-4 mt-4">
               {errorMessage}
