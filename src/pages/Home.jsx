@@ -111,11 +111,10 @@ export default function Home() {
               frontend. Feel free to browse the &quot;<i>PER</i>&quot; and &quot;
               <i>Ressources Numériques</i>&quot; applications that do not require authentication.
             </PortfolioCard>
-            {/* TODO Miguel : héberger le site Halloween */}
             <PortfolioCard
               date="2024"
               title="Halloween 👻"
-              link="https://edri.github.io/"
+              link="https://halloween.msantamaria.ch/"
               keywords="#threeJs #javaScript #frontend #imagination #spooky">
               <p>
                 I developed this 3D site during a roadtrip in the USA for one of my friends to
@@ -131,19 +130,24 @@ export default function Home() {
                 Github repository
               </button>
             </PortfolioCard>
-            {/* TODO Miguel: héberger l'app sur mon site et changer le lien */}
             <PortfolioCard
               date="2023"
               title="Quiz-Anatomie (in progress...)"
-              link="https://github.com/edri/quiz-anatomie"
+              link="https://quiz-anatomie.msantamaria.ch"
               keywords="#vueJs #frontend #anatomy #fun">
               This little personal project lets you revise your anatomy using a quiz inspired by the
               quiz formula available on geoguessr.com. A bone and/or muscle diagram is displayed
               with different points to be named at random. The idea was to combine fun with
               learning! However, the UI is pretty basic and development of the application is on
               hold due to lack of time. Maybe one day I&apos;ll get back into it!
+              <button
+                className="text-beige"
+                onClick={(event) => {
+                  goToUrl('https://github.com/edri/quiz-anatomie', event);
+                }}>
+                Github repository
+              </button>
             </PortfolioCard>
-            {/* TODO Miguel: mettre images de l'app dans le readme du repo */}
             <PortfolioCard
               date="2016"
               title="GeoTwit"
