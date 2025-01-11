@@ -135,11 +135,13 @@ export default function Home() {
               title="Quiz-Anatomie (in progress...)"
               link="https://quiz-anatomie.msantamaria.ch"
               keywords="#vueJs #frontend #anatomy #fun">
-              This little personal project lets you revise your anatomy using a quiz inspired by the
-              quiz formula available on geoguessr.com. A bone and/or muscle diagram is displayed
-              with different points to be named at random. The idea was to combine fun with
-              learning! However, the UI is pretty basic and development of the application is on
-              hold due to lack of time. Maybe one day I&apos;ll get back into it!
+              <p>
+                This little personal project lets you revise your anatomy using a quiz inspired by
+                the quiz formula available on geoguessr.com. A bone and/or muscle diagram is
+                displayed with different points to be named at random. The idea was to combine fun
+                with learning! However, the UI is pretty basic and development of the application is
+                on hold due to lack of time. Maybe one day I&apos;ll get back into it!
+              </p>
               <button
                 className="text-beige"
                 onClick={(event) => {
