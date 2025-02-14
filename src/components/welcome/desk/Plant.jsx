@@ -42,3 +42,4 @@ export default function Plant({ scale }) {
 Plant.propTypes = {
   scale: PropTypes.number.isRequired
 };
+

@@ -155,17 +155,19 @@ export default function Experience() {
           </RigidBody>
         )}
 
-        {!isMobileOrTablet && (
+        {/* TODO Miguel : fix the plant bug on loading */}
+	{/* {!isMobileOrTablet && (
           <RigidBody colliders={false} position={[2.8, 30, -3.5]}>
             <Plant scale={3} />
             <CuboidCollider args={[1.5, 1.5, 1.5]} position={[0, 1.5, 0]} />
           </RigidBody>
-        )}
+        )} */}
 
+        {/* TODO Miguel: position-y = 45 */}
         {!isMobileOrTablet && (
           <RigidBody
             colliders={false}
-            position={[3.3, 45, 0]}
+            position={[3.3, 30, 0]}
             onCollisionEnter={handleNameCollision}>
             <Title color={textColor} />
             <CuboidCollider args={[0.25, 0.5, 0.5]} position={[0, -1.2, 0]} />
