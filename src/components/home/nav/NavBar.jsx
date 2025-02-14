@@ -58,6 +58,12 @@ export default function Navbar({ sectionsRefs }) {
               closeMenu={closeMenu}
             />
             <NavItem
+              id="skills"
+              text="Skills"
+              sectionRef={sectionsRefs['skills']}
+              closeMenu={closeMenu}
+            />
+            <NavItem
               id="resume"
               text="Resume"
               sectionRef={sectionsRefs['resume']}

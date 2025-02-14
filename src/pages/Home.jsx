@@ -2,20 +2,19 @@ import {
   HiAcademicCap,
   HiArrowPathRoundedSquare,
   HiBriefcase,
-  HiComputerDesktop,
   HiMusicalNote
 } from 'react-icons/hi2';
-
 import { useRef } from 'react';
 import NavBar from '../components/home/nav/NavBar';
 import BackgroundCanvas from '../components/home/background/BackgroundCanvas';
 import Section from '../components/home/sections/Section';
 import HomeSection from '../components/home/sections/HomeSection';
-import ResumeSection from '../components/home/sections/ResumeSection';
+import SubSection from '../components/home/sections/SubSection';
 import PortfolioGrid from '../components/home/portfolio/PortfolioGrid';
 import PortfolioCard from '../components/home/portfolio/PortfolioCard';
 import Footer from '../components/home/footer/Footer';
 import ContactForm from '../components/home/form/ContactForm';
+import SkillsSection from '../components/home/sections/SkillsSection';
 
 const isMobileOrTablet = (() => {
   let check = false;
@@ -37,9 +36,10 @@ const isMobileOrTablet = (() => {
 export default function Home() {
   const sectionsRefs = {
     home: useRef(),
-    resume: useRef(),
-    portfolio: useRef(),
     about: useRef(),
+    portfolio: useRef(),
+    skills: useRef(),
+    resume: useRef(),
     contact: useRef()
   };
 
@@ -187,8 +187,11 @@ export default function Home() {
             </PortfolioCard>
           </PortfolioGrid>
         </Section>
+        <Section sectionsRefs={sectionsRefs} name="skills" title="Skills">
+          <SkillsSection />
+        </Section>
         <Section sectionsRefs={sectionsRefs} name="resume" title="Resume">
-          <ResumeSection title="Education" IconComponent={HiAcademicCap} marginTop={false}>
+          <SubSection title="Education" IconComponent={HiAcademicCap} marginTop="mt-0">
             <div className="mt-6 sm:m-0">1997-2008</div>
             <div>Nursery, primary and secondary schools</div>
             <div className="text-sm">Vionnaz, Switzerland</div>
@@ -229,8 +232,8 @@ export default function Home() {
               </p>
             </div>
             <div className="text-sm">Yverdon-les-Bains, Switzerland</div>
-          </ResumeSection>
-          <ResumeSection title="Continuing Education" IconComponent={HiArrowPathRoundedSquare}>
+          </SubSection>
+          <SubSection title="Continuing Education" IconComponent={HiArrowPathRoundedSquare}>
             <div className="mt-6 sm:m-0">2024-2025</div>
             <div>
               <a href="https://threejs-journey.com/" target="_blank" rel="noreferrer">
@@ -239,8 +242,8 @@ export default function Home() {
               training and related diploma; please have a look at this awesome course!
             </div>
             <div></div>
-          </ResumeSection>
-          <ResumeSection title="Professional Experience" IconComponent={HiBriefcase}>
+          </SubSection>
+          <SubSection title="Professional Experience" IconComponent={HiBriefcase}>
             <div className="mt-6 sm:m-0">2010-2013</div>
             <div>
               <p className="m-0">
@@ -299,37 +302,10 @@ export default function Home() {
               </p>
             </div>
             <div className="text-sm">Employment</div>
-          </ResumeSection>
-          {/* TODO Miguel : icônes de technologies */}
-          <ResumeSection title="Computer Skills" IconComponent={HiComputerDesktop}>
-            <div></div>
-            <div>
-              <ul className="list-disc list-inside">
-                <li className="mb-2">
-                  <strong>Languages</strong>: JavaScript, Java, Scala, PHP, C++, C#
-                </li>
-                <li className="mb-2">
-                  <strong>Web Development</strong>: frontend (Vue.js, Angular, React, Tailwind,
-                  Bootstrap, Three.js, D3, ...) and backend (Node.js, Spring Boot, REST APIs, ...)
-                  technologies
-                </li>
-                <li className="mb-2">
-                  <strong>Databases</strong>: MySQL, SQL Server, Oracle, MongoDB
-                </li>
-                <li className="mb-2">
-                  <strong>Operating systems</strong>: macOS, Linux, Windows
-                </li>
-                <li>
-                  <strong>Miscellaneous</strong>: Git, LaTeX, Markdown, Docker, Kubernetes,
-                  Atlassian JIRA / BitBucket, Photoshop, Office
-                </li>
-              </ul>
-            </div>
-            <div></div>
-          </ResumeSection>
-          <ResumeSection title="Hobbies" IconComponent={HiMusicalNote}>
+          </SubSection>
+          <SubSection title="Hobbies" IconComponent={HiMusicalNote}>
             <div>Music, writing, photography, art, sport & travels</div>
-          </ResumeSection>
+          </SubSection>
         </Section>
         <Section sectionsRefs={sectionsRefs} name="contact" title="Contact">
           <ContactForm />

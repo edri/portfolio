@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 
-export default function ResumeSection({ children, title, IconComponent, marginTop = true }) {
+export default function SubSection({ children, title, IconComponent, marginTop = 'mt-12' }) {
   return (
     <>
-      <section className={marginTop ? 'mt-12' : ''}>
-        <div className="flex items-center mt-12 mb-4">
+      <section className={marginTop}>
+        <div className="flex items-center mb-4">
           <IconComponent className="size-6 mr-4" />
           <h2 className="text-2xl font-bold">{title}</h2>
         </div>
@@ -14,9 +14,9 @@ export default function ResumeSection({ children, title, IconComponent, marginTo
   );
 }
 
-ResumeSection.propTypes = {
+SubSection.propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
   IconComponent: PropTypes.elementType.isRequired,
-  marginTop: PropTypes.bool
+  marginTop: PropTypes.string
 };
