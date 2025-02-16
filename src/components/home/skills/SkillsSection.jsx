@@ -41,7 +41,7 @@ import { TbBrandThreejs } from 'react-icons/tb';
 import { RiImageEditFill } from 'react-icons/ri';
 import { TbDeviceImacCog } from 'react-icons/tb';
 import { MdMiscellaneousServices } from 'react-icons/md';
-import Skill from '../skills/Skill';
+import Skill from './Skill';
 import SkillsSubsection from './SkillsSubsection';
 
 export default function SkillsSection() {

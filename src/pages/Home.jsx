@@ -14,7 +14,7 @@ import PortfolioGrid from '../components/home/portfolio/PortfolioGrid';
 import PortfolioCard from '../components/home/portfolio/PortfolioCard';
 import Footer from '../components/home/footer/Footer';
 import ContactForm from '../components/home/form/ContactForm';
-import SkillsSection from '../components/home/sections/SkillsSection';
+import SkillsSection from '../components/home/skills/SkillsSection';
 
 const isMobileOrTablet = (() => {
   let check = false;
