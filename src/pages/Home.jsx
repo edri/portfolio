@@ -254,13 +254,13 @@ export default function Home() {
               </p>
               <p className="text-sm m-0">
                 Development and maintenance of internal and external applications in C#, PHP and
-                JavaScript
+                JavaScript.
               </p>
-              <p className="text-sm m-0">Analysis, planning and management of customer projects</p>
-              <p className="text-sm m-0">Research and analysis of new technologies</p>
+              <p className="text-sm m-0">Analysis, planning and management of customer projects.</p>
+              <p className="text-sm m-0">Research and analysis of new technologies.</p>
             </div>
             <div className="text-sm">Internships & Employment</div>
-            <div className="mt-6 sm:m-0">2016-present</div>
+            <div className="mt-6 sm:m-0">2016-2025</div>
             <div>
               <p className="m-0">
                 <a href="https://heig-vd.ch/" target="_blank" rel="noreferrer">
@@ -298,7 +298,26 @@ export default function Home() {
                 .
               </p>
               <p className="text-sm m-0">
-                Assisting and doing odd jobs for web technology courses in the Bachelor’s programme
+                Assisting and doing odd jobs for web technology courses in the Bachelor’s programme.
+              </p>
+            </div>
+            <div className="text-sm">Employment</div>
+
+            <div className="mt-6 sm:m-0">2025-present</div>
+            <div>
+              <p className="m-0">
+                <a href="https://www.abraxas.ch" target="_blank" rel="noreferrer">
+                  Abraxas Informatik AG
+                </a>{' '}
+                - Senior Web Software Engineer
+              </p>
+              <p className="text-sm m-0">
+                Development of a full-stack web application for a public sector customer, with
+                priority given to the frontend for my role.
+              </p>
+              <p className="text-sm m-0">Assistance with software architecture decisions.</p>
+              <p className="text-sm m-0">
+                Use of backend (Java, JAX-RS, TomEE) and frontend (Angular) technologies.
               </p>
             </div>
             <div className="text-sm">Employment</div>
